@@ -25,7 +25,7 @@ URL:https://hub.docker.com/r/luisryes/mi-imagen
 ```text
 docker inspect --format '{{index .RepoDigests 0}}' <tu-usuario>/<tu-imagen>
 luisfernandoreyesaltamirano@MacBook-Air-de-Luis-4 fdd_o26_LuisRyes % docker inspect --format '{{index .RepoDigests 0}}' luisryes/mi-imagen:v1
-luisryes/mi-imagen@sha256:6c445695389bad5b9a7936fdd2b7116366cb961d8d2a44a8b5f398447b06fd94
+luisryes/mi-imagen@sha256:a940beaf906aeae3e56f5a40fb4762addb902d685fd870a6f3c2ca5dad77e6da
 ```
 
 ## Cómo la corro yo
@@ -39,8 +39,9 @@ docker run --rm luisryes/mi-imagen:v1
 Salida que debo esperar:
 
 ```text
-Corriendo como: root
+Corriendo como: nobody
 requests 2.32.3
+
 ```
 
 ## La prueba de que se baja del registro
@@ -55,29 +56,25 @@ docker run --rm <tu-usuario>/<tu-imagen>
 
 luisfernandoreyesaltamirano@MacBook-Air-de-Luis-4 fdd_o26_LuisRyes % docker logout
 Removing login credentials for https://index.docker.io/v1/
+luisfernandoreyesaltamirano@MacBook-Air-de-Luis-4 fdd_o26_LuisRyes % docker run --platform linux/amd64 --rm luisryes/mi-imagen:v1
+Corriendo como: nobody
+requests 2.32.3
+luisfernandoreyesaltamirano@MacBook-Air-de-Luis-4 fdd_o26_LuisRyes % nano estudiantes/LuisRyes/08_contenedores/mi-imagen.md
 luisfernandoreyesaltamirano@MacBook-Air-de-Luis-4 fdd_o26_LuisRyes % docker rmi -f luisryes/mi-imagen:v1
 Untagged: luisryes/mi-imagen:v1
-Deleted: sha256:6c445695389bad5b9a7936fdd2b7116366cb961d8d2a44a8b5f398447b06fd94
-luisfernandoreyesaltamirano@MacBook-Air-de-Luis-4 fdd_o26_LuisRyes % docker run --rm luisryes/mi-imagen:v1
-Unable to find image 'luisryes/mi-imagen:v1' locally
-
-What's next:
-    Debug this container error with Gordon → docker ai "help me fix this container error"
-docker: Error response from daemon: no matching manifest for linux/arm64/v8 in the manifest list entries: no match for platform in manifest: not found
-
-Run 'docker run --help' for more information
+Deleted: sha256:a940beaf906aeae3e56f5a40fb4762addb902d685fd870a6f3c2ca5dad77e6da
 luisfernandoreyesaltamirano@MacBook-Air-de-Luis-4 fdd_o26_LuisRyes % docker run --platform linux/amd64 --rm luisryes/mi-imagen:v1
 Unable to find image 'luisryes/mi-imagen:v1' locally
 v1: Pulling from luisryes/mi-imagen
-a6ec7710ba76: Pull complete 
+13140c87cc71: Pull complete 
 29ca634d3e9b: Pull complete 
 0380fc010d91: Pull complete 
 61fd4a0539f5: Pull complete 
 44136fa355b3: Already exists 
-e88021c77ba5: Download complete 
-Digest: sha256:6c445695389bad5b9a7936fdd2b7116366cb961d8d2a44a8b5f398447b06fd94
+8d7d07ef499b: Download complete 
+Digest: sha256:a940beaf906aeae3e56f5a40fb4762addb902d685fd870a6f3c2ca5dad77e6da
 Status: Downloaded newer image for luisryes/mi-imagen:v1
-Corriendo como: root
+Corriendo como: nobody
 requests 2.32.3
 ```
 

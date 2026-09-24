@@ -77,7 +77,8 @@ Uno por línea: qué estaba mal, qué consecuencia tiene, y qué cambiaste.
 
 1.La version que usaba de python era muy pesada y no cumplia con lo pedido, por eso la cambie a una más ligera
 2.El COPY . . no usaba eficientemente las capas de docker, por eso puse la instalacion arriba de COPY . . 
-3.el pip install no tenia banderas de limpieza de cache por eso se lo añadi
+3.el pip install no tenia banderas de limpieza de cache por eso se lo añadi y no habia USER que no sea root, y las instrucciones pedian otro,
+ asi que puse el nobody
 
 ## Una cosa que se me rompió
 
